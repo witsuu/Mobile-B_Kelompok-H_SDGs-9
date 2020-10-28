@@ -11,3 +11,9 @@
 
 Let's Trip merupakan aplikasi bertemakan Digital Tour Guide. Aplikasi ini dibangun dalam rangka meningkatkan industri pariwisata di Indonesia, khususnya dengan meningkatkan kunjungan wisatawan asing. Aplikasi ini mempermudah wisatawan dalam mendapatkan informasi terkait pariwisata di daerah tertentu.
 Dalam aplikasi ini memiliki beberapa fitur, antara lain informasi wisata, review wisata, bookmark (untuk menyimpan informasi wisata), dan akun/login.
+
+#Progress 1
+Judul proyek, link repository, dan username github anggota untuk menambahkan contributor.
+
+#Progress 2
+Laman Login dan Register
