@@ -1,4 +1,4 @@
-# Project Mobile Kelompok H - LET'S TRIP
+# Project Mobile Kelompok H - LET'S TRIP <br>
 (SDG's 9: INDUSTRY, INNOVATION, AND INFRASTRUCTURE)
 
 
@@ -13,7 +13,11 @@ Let's Trip merupakan aplikasi bertemakan Digital Tour Guide. Aplikasi ini dibang
 Dalam aplikasi ini memiliki beberapa fitur, antara lain informasi wisata, review wisata, bookmark (untuk menyimpan informasi wisata), dan akun/login.
 
 #Progress 1
-Judul proyek, link repository, dan username github anggota untuk menambahkan contributor.
+- Judul proyek, link repository, dan username github anggota untuk menambahkan contributor.
 
 #Progress 2
-Laman Login dan Register
+- Menambahkan Tampilan Fitur Login dan Register
+- Menambahkan splash screen
+- Fitur Login menggunakan REST API
+- Fitur Register menggunakan REST API
+- Menambah fitur Logout( Penempatan hanya sementara ) 
