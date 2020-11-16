@@ -23,3 +23,9 @@ Dalam aplikasi ini memiliki beberapa fitur, antara lain informasi wisata, review
 - Fitur Register menggunakan REST API
 - Menambah fitur Logout( Penempatan hanya sementara ) 
 - Menambah secure storage untuk nyimpan session user
+
+#Progress 3
+- Membuat Desain Mock Up 
+
+
+
