@@ -175,7 +175,7 @@ class _RegisterState extends State<Register> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text("Info SignUp"),
-            content: Text("$_content"),
+            content: Text("Password hanya berisi huruf dan angka. Dan panjang minimal 6 karakter"),
             actions: [
               FlatButton(
                   onPressed: () {
