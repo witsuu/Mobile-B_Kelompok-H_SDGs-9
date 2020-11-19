@@ -7,6 +7,10 @@ void main() {
 
 class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
-    return LoaderScreen();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "Home Screen",
+      home: Loader(),
+    );
   }
 }

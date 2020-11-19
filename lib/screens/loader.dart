@@ -1,16 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:latihan/screens/home.dart';
+import 'package:latihan/screens/bottomNavigatorController.dart';
 import 'package:latihan/screens/login.dart';
 import 'package:latihan/networking/sessionUser.dart';
 
-class LoaderScreen extends StatelessWidget {
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Loader(),
-    );
-  }
-}
 
 class Loader extends StatefulWidget {
   _StateLoader createState() => _StateLoader();
@@ -53,7 +45,7 @@ class _StateLoader extends State<Loader> {
             new Future.delayed(
                 Duration(seconds: 4),
                 () => Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => HomeScreen())));
+                    MaterialPageRoute(builder: (context) => BottomNavigatorController())));
             return CircularProgressIndicator();
           } else {
             return Container(
@@ -63,7 +55,7 @@ class _StateLoader extends State<Loader> {
                 color: Colors.lightBlue,
                 onPressed: () => {
                   Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()))
+                      MaterialPageRoute(builder: (context) => Login()))
                 },
                 child: Text("SELAMAT DATANG"),
               ),

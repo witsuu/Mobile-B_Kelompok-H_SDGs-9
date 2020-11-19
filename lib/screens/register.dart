@@ -3,17 +3,7 @@ import 'package:latihan/screens/login.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:latihan/screens/home.dart';
-
-class RegisterScreen extends StatelessWidget {
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Login Screen",
-      home: Register(),
-    );
-  }
-}
+import 'package:latihan/screens/bottomNavigatorController.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -125,7 +115,7 @@ class _RegisterState extends State<Register> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => LoginScreen()))
+                                          builder: (context) => Login()))
                                 },
                             child: Text("Login"))
                       ],
@@ -172,7 +162,7 @@ class _RegisterState extends State<Register> {
       await _storage.write(key: 'email', value: _mail);
       Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => HomeScreen()),
+          MaterialPageRoute(builder: (context) => BottomNavigatorController()),
           (route) => false);
     } else {
       _alert(response.body);
