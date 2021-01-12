@@ -41,10 +41,10 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 )),
-                SizedBox(height: 20.0),
+                SizedBox(height: 15.0),
                 Container(
                     width: MediaQuery.of(context).size.width,
-                    height: 280,
+                    height: 250,
                     padding: EdgeInsets.all(20),
                     decoration: BoxDecoration(
                         image: DecorationImage(
@@ -137,16 +137,16 @@ class _HomeState extends State<Home> {
                 spacing: 20,
                 runSpacing: 20,
                 children: [
-                  _listContent(' Candi Borobudur', 'Jogjakarta, Jawa Tengah',
-                      'borobudur.jpg'),
+                  _listContent(
+                      ' Borobudur', 'Jogjakarta, Jawa Tengah', 'borobudur.jpg'),
                   _listContent(
                       'Kawah Ijen', 'Bondowoso, Jawa Timur', 'ijen.jpg'),
                   _listContent(
                       'Gunung Bromo', 'Probolinggo, Jawa Timur', 'bromo.png'),
                   _listContent(
                       'Kawah Ijen', 'Bondowoso, Jawa Timur', 'ijen.jpg'),
-                  _listContent(' Candi Borobudur', 'Jogjakarta, Jawa Tengah',
-                      'borobudur.jpg'),
+                  _listContent(
+                      ' Borobudur', 'Jogjakarta, Jawa Tengah', 'borobudur.jpg'),
                   _listContent(
                       'Gunung Bromo', 'Probolinggo, Jawa Timur', 'bromo.png'),
                 ],
@@ -159,10 +159,11 @@ class _HomeState extends State<Home> {
   Widget _listContent(String nama, String alamat, String gambar) {
     return GestureDetector(
       onTap: () => {
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>Detail()))
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Detail()))
       },
       child: Container(
-        width: MediaQuery.of(context).size.width / 2.3,
+        width: MediaQuery.of(context).size.width / 2.2,
         decoration: BoxDecoration(
           color: Colors.white10,
           borderRadius: BorderRadius.circular(10),
@@ -177,7 +178,7 @@ class _HomeState extends State<Home> {
           children: [
             Container(
               height: 140,
-              width: MediaQuery.of(context).size.width / 2.3,
+              width: MediaQuery.of(context).size.width / 2.0,
               padding: EdgeInsets.all(5),
               decoration: BoxDecoration(
                   image: DecorationImage(

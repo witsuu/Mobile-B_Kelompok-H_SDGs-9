@@ -37,7 +37,10 @@ class _RegisterState extends State<Register> {
     return Scaffold(
       body: Container(
           padding: EdgeInsets.only(top: 30),
-          decoration: BoxDecoration(color: Colors.white),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover),
+          ),
           child: Form(
             key: _formKey,
             child: Center(
@@ -46,7 +49,7 @@ class _RegisterState extends State<Register> {
                 padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
                 child: Column(
                   children: [
-                    Image(image: AssetImage("assets/logos/splash.png")),
+                    Image(image: AssetImage("assets/logos/logo.png")),
                     Container(
                       margin: EdgeInsets.only(top: 20),
                       child: TextFormField(
@@ -58,9 +61,12 @@ class _RegisterState extends State<Register> {
                             return null;
                           }
                         },
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 20, color: Colors.white),
                         decoration: InputDecoration(
                             hintText: "Masukkan Nama Lengkap",
+                            hintStyle: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                color: Colors.white),
                             contentPadding:
                                 EdgeInsets.only(left: 10, bottom: -20)),
                       ),
@@ -68,26 +74,28 @@ class _RegisterState extends State<Register> {
                     Container(
                       margin: EdgeInsets.only(top: 20),
                       child: TextFormField(
-                        controller: _emailController,
-                        validator: (value) {
-                          if (value.isEmpty) {
-                            return "Email tidak boleh kosong";
-                          } else {
-                            return null;
-                          }
-                        },
-                        style: TextStyle(fontSize: 20),
-                        decoration: InputDecoration(
-                            hintText: "Masukkan Email",
-                            contentPadding:
-                                EdgeInsets.only(left: 10, bottom: -20)),
-                      ),
+                          controller: _emailController,
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return "Email tidak boleh kosong";
+                            } else {
+                              return null;
+                            }
+                          },
+                          style: TextStyle(fontSize: 20, color: Colors.white),
+                          decoration: InputDecoration(
+                              hintText: "Masukkan Email",
+                              hintStyle: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.white),
+                              contentPadding:
+                                  EdgeInsets.only(left: 10, bottom: -20))),
                     ),
                     Container(
                       margin: EdgeInsets.only(top: 20),
                       child: TextFormField(
                         controller: _passwdController,
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 20, color: Colors.white),
                         validator: (value) {
                           if (value.isEmpty) {
                             return "Password tidak boleh kosong";
@@ -98,18 +106,22 @@ class _RegisterState extends State<Register> {
                         obscureText: true,
                         decoration: InputDecoration(
                             hintText: "Password",
+                            hintStyle: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                color: Colors.white),
                             contentPadding:
                                 EdgeInsets.only(left: 10, bottom: -20)),
                       ),
                     ),
                     Container(
-                        margin: EdgeInsets.only(top: 30, bottom: 20),
+                        margin: EdgeInsets.only(top: 30),
                         width: double.infinity,
                         child: _buttonLogin()),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Sudah punya akun ?"),
+                        Text("Sudah punya akun ?",
+                            style: TextStyle(color: Colors.white)),
                         FlatButton(
                             onPressed: () => {
                                   Navigator.push(
@@ -117,7 +129,8 @@ class _RegisterState extends State<Register> {
                                       MaterialPageRoute(
                                           builder: (context) => Login()))
                                 },
-                            child: Text("Login"))
+                            child: Text("Login",
+                                style: TextStyle(color: Colors.white))),
                       ],
                     )
                   ],
@@ -131,7 +144,7 @@ class _RegisterState extends State<Register> {
   Widget _buttonLogin() {
     return MaterialButton(
         textColor: Colors.white,
-        color: Colors.green,
+        color: Colors.blue,
         padding: EdgeInsets.only(top: 15, bottom: 15),
         onPressed: () => {
               if (_formKey.currentState.validate())
@@ -139,13 +152,16 @@ class _RegisterState extends State<Register> {
                   _nama = _namaController.text,
                   _mail = _emailController.text,
                   _pass = _passwdController.text,
-                  _checkLogin(_nama,_mail, _pass)
+                  _checkLogin(_nama, _mail, _pass)
                 },
             },
-        child: Text("REGISTER"));
+        child: Text(
+          "REGISTER",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ));
   }
 
-  void _checkLogin(nama,email, passwd) async {
+  void _checkLogin(nama, email, passwd) async {
     final uri = "https://witsu-api.herokuapp.com/user/signup";
     final response = await http.post(uri,
         headers: <String, String>{
@@ -175,7 +191,7 @@ class _RegisterState extends State<Register> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text("Info SignUp"),
-            content: Text("Password hanya berisi huruf dan angka. Dan panjang minimal 6 karakter"),
+            content: Text(_content),
             actions: [
               FlatButton(
                   onPressed: () {

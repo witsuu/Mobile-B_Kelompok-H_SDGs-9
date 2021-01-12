@@ -1,10 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:latihan/screens/register.dart';
 import 'package:latihan/screens/bottomNavigatorController.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-
 
 class Login extends StatefulWidget {
   @override
@@ -53,7 +53,10 @@ class _LoginState extends State<Login> {
     return Scaffold(
       body: Container(
           padding: EdgeInsets.only(top: 30),
-          decoration: BoxDecoration(color: Colors.white),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover),
+          ),
           child: Form(
             key: _formKey,
             child: Center(
@@ -62,7 +65,7 @@ class _LoginState extends State<Login> {
                 padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
                 child: Column(
                   children: [
-                    Image(image: AssetImage("assets/logos/splash.png")),
+                    Image(image: AssetImage("assets/logos/logo.png")),
                     Container(
                       margin: EdgeInsets.only(top: 20),
                       child: TextFormField(
@@ -74,13 +77,17 @@ class _LoginState extends State<Login> {
                             return null;
                           }
                         },
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 20, color: Colors.white),
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
+                            hoverColor: Colors.white,
                             hintText: "Masukkan Email",
+                            hintStyle: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                color: Colors.white),
                             prefixIcon: Icon(
                               Icons.email,
-                              color: Colors.blueAccent,
+                              color: Colors.white,
                             )),
                       ),
                     ),
@@ -88,7 +95,7 @@ class _LoginState extends State<Login> {
                       margin: EdgeInsets.only(top: 20),
                       child: TextFormField(
                         controller: _passwdController,
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 20, color: Colors.white),
                         validator: (value) {
                           if (value.isEmpty) {
                             return "Password not valid";
@@ -99,29 +106,31 @@ class _LoginState extends State<Login> {
                         obscureText: true,
                         decoration: InputDecoration(
                             hintText: "Password",
-                            prefixIcon: Icon(
-                              Icons.security,
-                              color: Colors.blueAccent,
-                            )),
+                            hintStyle: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                color: Colors.white),
+                            prefixIcon:
+                                Icon(Icons.security, color: Colors.white)),
                       ),
                     ),
                     Container(
-                        margin: EdgeInsets.only(top: 30, bottom: 20),
+                        margin: EdgeInsets.only(top: 30),
                         width: double.infinity,
                         child: _buttonLogin()),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Belum punya akun ?"),
+                        Text("Belum punya akun ?",
+                            style: TextStyle(color: Colors.white)),
                         FlatButton(
                             onPressed: () => {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              Register()))
+                                          builder: (context) => Register()))
                                 },
-                            child: Text("Register"))
+                            child: Text("Register",
+                                style: TextStyle(color: Colors.white)))
                       ],
                     ),
                   ],
@@ -135,7 +144,7 @@ class _LoginState extends State<Login> {
   Widget _buttonLogin() {
     return MaterialButton(
         textColor: Colors.white,
-        color: Colors.green,
+        color: Colors.blue,
         padding: EdgeInsets.only(top: 15, bottom: 15),
         onPressed: () => {
               if (_formKey.currentState.validate())
@@ -145,7 +154,10 @@ class _LoginState extends State<Login> {
                   _checkLogin(_mail, _pass)
                 },
             },
-        child: Text("Login"));
+        child: Text(
+          "LOGIN",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ));
   }
 
   void _checkLogin(email, passwd) async {
@@ -163,7 +175,9 @@ class _LoginState extends State<Login> {
       await _storage.write(key: 'isLogged', value: 'logged');
       await _storage.write(key: 'email', value: _mail);
       Navigator.pushAndRemoveUntil(
-          context, MaterialPageRoute(builder: (context) => BottomNavigatorController()), (route)=> false);
+          context,
+          MaterialPageRoute(builder: (context) => BottomNavigatorController()),
+          (route) => false);
     } else {
       _alert(response.body);
     }

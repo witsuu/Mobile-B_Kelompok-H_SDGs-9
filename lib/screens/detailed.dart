@@ -144,13 +144,24 @@ class _DetailState extends State<Detail> {
                         children: [
                           Icon(Icons.location_pin, size: 20),
                           Padding(
-                            padding: EdgeInsets.only(left: 5),
-                            child: Text(
-                              'Kabupaten Probolinggi, Jawa Timur',
-                              style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w600),
-                            ),
-                          )
+                              padding: EdgeInsets.only(left: 5),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Kabupaten Probolinggo, Jawa Timur',
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () => null,
+                                    child: Text('Lihat Lokasi',
+                                        style: TextStyle(
+                                            color: Colors.blueAccent)),
+                                  )
+                                ],
+                              ))
                         ],
                       ),
                       SizedBox(
@@ -220,10 +231,9 @@ class _DetailState extends State<Detail> {
                       ),
                       Container(
                         margin: EdgeInsets.only(left: 15),
-                        child: Column(
-                          children: [
-                            _listReview(),]
-                        ),
+                        child: Column(children: [
+                          _listReview(),
+                        ]),
                       ),
                       FlatButton(
                           onPressed: () => {},
@@ -308,7 +318,8 @@ class _DetailState extends State<Detail> {
   Widget _createReview() {
     return Container(
       padding: EdgeInsets.all(5),
-      decoration: BoxDecoration(color: Colors.black26,borderRadius: BorderRadius.circular(5)),
+      decoration: BoxDecoration(
+          color: Colors.black26, borderRadius: BorderRadius.circular(5)),
       child: Row(
         children: [
           Container(
