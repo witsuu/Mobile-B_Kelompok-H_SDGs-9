@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:latihan/screens/maps.dart';
 
 class Detail extends StatefulWidget {
   const Detail({Key key}) : super(key: key);
@@ -15,6 +16,7 @@ class _DetailState extends State<Detail> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: ListView(
         children: [
           Container(
@@ -155,7 +157,13 @@ class _DetailState extends State<Detail> {
                                         fontWeight: FontWeight.w600),
                                   ),
                                   GestureDetector(
-                                    onTap: () => null,
+                                    onTap: () => {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  MapScreen()))
+                                    },
                                     child: Text('Lihat Lokasi',
                                         style: TextStyle(
                                             color: Colors.blueAccent)),

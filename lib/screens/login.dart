@@ -51,6 +51,7 @@ class _LoginState extends State<Login> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: Container(
           padding: EdgeInsets.only(top: 30),
           decoration: BoxDecoration(
@@ -65,7 +66,10 @@ class _LoginState extends State<Login> {
                 padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
                 child: Column(
                   children: [
-                    Image(image: AssetImage("assets/logos/logo.png")),
+                    Image(
+                      image: AssetImage("assets/logos/logo.png"),
+                      //height: 50,
+                    ),
                     Container(
                       margin: EdgeInsets.only(top: 20),
                       child: TextFormField(

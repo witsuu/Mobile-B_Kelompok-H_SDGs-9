@@ -16,6 +16,7 @@ class _HomeState extends State<Home> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: ListView(
         children: [
           Container(
@@ -30,18 +31,23 @@ class _HomeState extends State<Home> {
                 Form(
                     child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.white54,
-                      borderRadius: BorderRadius.circular(10)),
+                      color: Colors.white.withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(50)),
+                  height: 45,
                   child: TextFormField(
                     decoration: InputDecoration(
-                      hintText: 'Temukan Destinasi',
+                      border: InputBorder.none,
+                      hintText: 'Temukan destinasi',
+                      hintStyle: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.w400),
                       prefixIcon: Icon(
                         Icons.search,
+                        color: Colors.white,
                       ),
                     ),
                   ),
                 )),
-                SizedBox(height: 15.0),
+                SizedBox(height: 10.0),
                 Container(
                     width: MediaQuery.of(context).size.width,
                     height: 250,
@@ -118,12 +124,12 @@ class _HomeState extends State<Home> {
                     Icon(
                       Icons.circle,
                       size: 10,
-                      color: Colors.grey,
+                      color: Colors.white.withOpacity(0.25),
                     ),
                     Icon(
                       Icons.circle,
                       size: 10,
-                      color: Colors.grey,
+                      color: Colors.white.withOpacity(0.25),
                     ),
                   ],
                 )
@@ -131,7 +137,7 @@ class _HomeState extends State<Home> {
             ),
           ),
           Container(
-              padding: EdgeInsets.only(top: 20, bottom: 20),
+              padding: EdgeInsets.only(top: 10, bottom: 10),
               child: Wrap(
                 alignment: WrapAlignment.center,
                 spacing: 20,

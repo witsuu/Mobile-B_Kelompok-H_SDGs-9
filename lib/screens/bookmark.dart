@@ -15,6 +15,7 @@ class _BookmarkState extends State<Bookmark> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomPadding: false,
         appBar: AppBar(
           title: Text("Bookmark screen"),
         ),
@@ -57,7 +58,9 @@ class _BookmarkState extends State<Bookmark> {
                 height: 80,
                 decoration: BoxDecoration(
                   color: Colors.black38,
-                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10),bottomRight: Radius.circular(10)),
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10)),
                 ),
               )
             ],

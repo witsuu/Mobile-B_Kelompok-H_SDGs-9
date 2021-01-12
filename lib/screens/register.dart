@@ -35,6 +35,7 @@ class _RegisterState extends State<Register> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: Container(
           padding: EdgeInsets.only(top: 30),
           decoration: BoxDecoration(

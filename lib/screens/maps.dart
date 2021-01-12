@@ -18,6 +18,7 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: new AppBar(title: Text('Map Screen')),
       body: Center(
         child: Column(
@@ -85,7 +86,7 @@ class _MapScreenState extends State<MapScreen> {
     }
   }
 
-  void checkPermissionGps() {
+  void checkPermissionGps() async {
     print("CHECKING LOCATION BEGIN");
     geo.Geolocator.isLocationServiceEnabled().then((bool isEnable) {
       print("LOATION SERVICE ENABLE? : $isEnable");
@@ -112,8 +113,9 @@ class _MapScreenState extends State<MapScreen> {
     });
   }
 
-  void getCurrentLoc() {
+  void getCurrentLoc() async {
     geo.Geolocator.getCurrentPosition().then((geo.Position pos) {
+      print('GPS LOCATION: ${pos.latitude} ${pos.longitude}');
       if (mapController != null) {
         gpsLoc = new mb.LatLng(pos.latitude, pos.longitude);
         var newCamLoc = mb.CameraUpdate.newLatLng(gpsLoc);
@@ -135,7 +137,7 @@ class _MapScreenState extends State<MapScreen> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text("Info Login"),
+            title: Text("Error"),
             content: Text("$_content"),
             actions: [
               FlatButton(

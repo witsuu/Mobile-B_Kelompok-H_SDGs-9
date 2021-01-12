@@ -62,6 +62,7 @@ class _BottomNavigatorControllerState extends State<BottomNavigatorController> {
     SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(statusBarColor: Colors.blue));
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: PageStorage(bucket: bucket, child: pages[_selectedIndex]),
       bottomNavigationBar: _bottomNavigatorBar(_selectedIndex),
     );
