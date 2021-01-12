@@ -12,7 +12,7 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="LetsTrip"
-        android:icon="@mipmap/splash">
+        android:icon="@mipmap/icon">
         <activity
             android:name=".MainActivity"
             android:theme="@style/LaunchTheme"

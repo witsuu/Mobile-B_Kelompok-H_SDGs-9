@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:latihan/screens/home.dart';
 import 'package:latihan/screens/maps.dart';
 
 class Detail extends StatefulWidget {
@@ -36,7 +37,7 @@ class _DetailState extends State<Detail> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 GestureDetector(
-                  onTap: () => {},
+                  onTap: () => {Navigator.pop(context)},
                   child: Icon(
                     Icons.arrow_back_ios,
                     color: Colors.white,
@@ -70,7 +71,7 @@ class _DetailState extends State<Detail> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Wisata Gunung Bromo',
+                          Text('Gunung Bromo',
                               style: TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.bold,

@@ -21,10 +21,11 @@ class _HomeState extends State<Home> {
         children: [
           Container(
             decoration: BoxDecoration(
-                color: Colors.blue,
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(10),
-                    bottomRight: Radius.circular(10))),
+              color: Colors.blue,
+              //borderRadius: BorderRadius.only(
+              //bottomLeft: Radius.circular(10),
+              //bottomRight: Radius.circular(10))
+            ),
             padding: EdgeInsets.all(10),
             child: Column(
               children: [
@@ -48,68 +49,73 @@ class _HomeState extends State<Home> {
                   ),
                 )),
                 SizedBox(height: 10.0),
-                Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 250,
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/images/bromo.png'),
-                            fit: BoxFit.cover),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Stack(children: [
-                      Positioned(
-                        bottom: 0,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Wisata Gunung Bromo',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.w600)),
-                            Text('Kota Probolinggo',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                ))
-                          ],
-                        ),
-                      ),
-                      Positioned(
-                        bottom: 0,
-                        right: 0,
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.star,
-                              color: Colors.yellow,
-                              size: 15,
+                GestureDetector(
+                    onTap: () => {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Detail()))
+                        },
+                    child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: 250,
+                        padding: EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage('assets/images/bromo.png'),
+                                fit: BoxFit.cover),
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Stack(children: [
+                          Positioned(
+                            bottom: 0,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('Gunung Bromo',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.w600)),
+                                Text('Probolinggo, Jawa Timur',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                    ))
+                              ],
                             ),
-                            Icon(
-                              Icons.star,
-                              color: Colors.yellow,
-                              size: 15,
+                          ),
+                          Positioned(
+                            bottom: 0,
+                            right: 0,
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.yellow,
+                                  size: 15,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.yellow,
+                                  size: 15,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.yellow,
+                                  size: 15,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.yellow,
+                                  size: 15,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.yellow,
+                                  size: 15,
+                                ),
+                              ],
                             ),
-                            Icon(
-                              Icons.star,
-                              color: Colors.yellow,
-                              size: 15,
-                            ),
-                            Icon(
-                              Icons.star,
-                              color: Colors.yellow,
-                              size: 15,
-                            ),
-                            Icon(
-                              Icons.star,
-                              color: Colors.yellow,
-                              size: 15,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ])),
+                          ),
+                        ]))),
                 SizedBox(
                   height: 10,
                 ),

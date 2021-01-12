@@ -38,7 +38,7 @@ class _MapScreenState extends State<MapScreen> {
         accessToken: token,
         styleString: 'mapbox://styles/mapbox/streets-v11',
         initialCameraPosition: new mb.CameraPosition(
-            target: mb.LatLng(-8.1766639, 113.6916075), zoom: 8),
+            target: mb.LatLng(-7.9424931, 112.9355026), zoom: 8),
         onMapCreated: mapCreated,
         onMapClick: mapClicked,
       ),
@@ -61,7 +61,7 @@ class _MapScreenState extends State<MapScreen> {
     mapController = controller;
     print('map created');
 
-    var lokasi = mb.LatLng(-8.1766639, 113.6916075);
+    var lokasi = mb.LatLng(-7.9424931, 112.9355026);
 
     mapController.addCircle(new mb.CircleOptions(
       circleRadius: 8,
